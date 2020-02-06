@@ -6,6 +6,7 @@ env:
   - ARTIFACTORY_BOBCAT_DOCKER_REGISTRY : "artifactory.dev.adskengineer.net"
   - NUGET_API_ID : "dynamovisualprogramming_nuget_api_key"
 
+timeout: 120
 check_changelog_updated_on_pr: false
 pipeline_os: "Linux"
 force_slack_notification : true

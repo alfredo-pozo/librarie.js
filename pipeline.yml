@@ -20,7 +20,7 @@ jenkins_creds:
 build:
   -
     scripts:
-      - "sh echo uno"
+      - "echo 'uno'"
   #  customized_builder_image:
   #    registry: artifactory
   #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2

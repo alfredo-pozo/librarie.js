@@ -17,13 +17,13 @@ jenkins_creds:
     credentialsId: dynamovisualprogramming_nuget_api_key
     secretText: API_KEY
 
-#build:
- # -
+build:
+  -
   #  customized_builder_image:
   #    registry: artifactory
   #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
-  #  scripts:
-  #    - "npm install"
+    scripts:
+      - "sh echo 'uno'"
   #    - "npm run build"
 
 #ci_test:

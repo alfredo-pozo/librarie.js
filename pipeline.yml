@@ -11,28 +11,34 @@ pipeline_os: "Linux"
 force_slack_notification : true
 nodejs_version: "10"
 
-build:
+jenkins_creds:
   -
-    customized_builder_image:
-      registry: artifactory
-      url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
-    scripts:
-      - "npm install"
-      - "npm run build"
+    type: secretText
+    credentialsId: dynamovisualprogramming_nuget_api_key
+    secretText: API_KEY
 
-ci_test:
-  tests:
-    -
-      customized_builder_image:
-        registry: artifactory
-        url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
-      scripts:
-        - "npm run test"
-        - "npm run utiltest"
-  test_report_dir: TestResults
-  test_report_pattern:
-    format: "junit"
-    pattern: "*.xml"
+#build:
+ # -
+  #  customized_builder_image:
+  #    registry: artifactory
+  #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
+  #  scripts:
+  #    - "npm install"
+  #    - "npm run build"
+
+#ci_test:
+  #tests:
+   # -
+  #    customized_builder_image:
+   #     registry: artifactory
+   #     url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
+  #    scripts:
+  #      - "npm run test"
+  #      - "npm run utiltest"
+  #test_report_dir: TestResults
+  #test_report_pattern:
+  #  format: "junit"
+  #  pattern: "*.xml"
 
 deployment:
   -
@@ -41,5 +47,6 @@ deployment:
       registry: artifactory
       url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
     scripts:
-      - "dotnet pack -c Release -o nuget --version-suffix \"beta$BUILD_NUMBER\""
-      - "dotnet nuget push \"$(find nuget -type f -name *.nupkg)\" -s https://api.nuget.org/v3/index.json -k $API_KEY"
+      #- "dotnet pack -c Release -o nuget --version-suffix \"beta$BUILD_NUMBER\""
+      #- "dotnet nuget push \"$(find nuget -type f -name *.nupkg)\" -s https://api.nuget.org/v3/index.json -k $API_KEY"
+      - "sh echo $API_KEY"

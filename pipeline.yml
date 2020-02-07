@@ -22,7 +22,6 @@ build:
   -
     scripts:
       - "npm version"
-      - "echo $NUGET_API_ID"
   #  customized_builder_image:
   #    registry: artifactory
   #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
@@ -47,7 +46,7 @@ deployment:
   -
     type: customized
     scripts:
-      - "echo $NUGET_API_ID"
+      - "echo $API_KEY"
     #type: customized
     #customized_builder_image:
     #  registry: artifactory

@@ -22,6 +22,8 @@ build:
   -
     scripts:
       - "npm version"
+      - "echo $NUGET_API_ID"
+      - "sh echo $NUGET_API_ID"
   #  customized_builder_image:
   #    registry: artifactory
   #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2

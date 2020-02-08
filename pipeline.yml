@@ -22,19 +22,22 @@ build:
   -
     scripts:
       - "echo $ADS_USER_NAME"
+      - "echo $API_KEY"
   #  customized_builder_image:
   #    registry: artifactory
   #    url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
     
   #    - "npm run build"
 
-#ci_test:
-  #tests:
-   # -
+ci_test:
+  tests:
+    -
   #    customized_builder_image:
    #     registry: artifactory
    #     url: artifactory.dev.adskengineer.net/docker-local-v2/dynamo/dynamolibrariejs:dotnetcore2
-  #    scripts:
+      scripts:
+        - "echo $ADS_USER_NAME"
+        - "echo $API_KEY"
   #      - "npm run test"
   #      - "npm run utiltest"
   #test_report_dir: TestResults
